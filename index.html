@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secret Silence Flug – Ticket</title>
+  <style>
+    :root{
+      --yellow:#ffcc00;
+      --blue:#0a1d4d;
+      --card:#fff;
+      --text:#111;
+    }
+    body{
+      margin:0; 
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--blue);
+      color:var(--text);
+      display:flex; justify-content:center; align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+    .ticket{
+      background:var(--card);
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.4);
+      max-width:800px;
+      width:100%;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:2fr 1fr;
+    }
+    .left{ padding:30px; }
+    .right{ 
+      padding:20px; 
+      background:var(--yellow);
+      color:var(--blue);
+      display:flex; flex-direction:column; justify-content:space-between; align-items:center;
+    }
+    header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+    .brand{ font-weight:900; font-size:22px; letter-spacing:.05em; color:var(--blue); }
+    .route{ font-size:48px; font-weight:900; color:var(--blue); display:flex; align-items:center; gap:15px; }
+    .route span{ font-size:28px; color:#444; font-weight:500; }
+    .details{ margin-top:20px; display:grid; grid-template-columns: repeat(3,1fr); gap:15px; }
+    .field{ border:1px solid #eee; border-radius:10px; padding:10px; background:#fafafa; }
+    .label{ font-size:11px; color:#666; text-transform:uppercase; letter-spacing:.05em; }
+    .value{ font-size:16px; font-weight:700; margin-top:4px; }
+    .divider{ height:1px; background:repeating-linear-gradient(90deg,#999 0 6px,transparent 6px 12px); margin:25px 0; }
+    .right .info{ font-size:14px; line-height:1.4; font-weight:600; margin-bottom:20px; text-align:center; }
+    footer{ margin-top:20px; font-size:12px; color:#666; text-align:center; }
+    #qrcode{ background:#fff; padding:10px; border-radius:10px; }
+  </style>
+</head>
+<body>
+  <article class="ticket">
+    <!-- Linke Seite -->
+    <section class="left">
+      <header>
+        <div class="brand">Secret Silence Flug</div>
+        <div><strong>LH476</strong></div>
+      </header>
+
+      <div class="route">
+        MUC <span>→</span> YVR
+      </div>
+      <div> München → Vancouver</div>
+
+      <div class="details">
+        <div class="field">
+          <div class="label">Passagier</div>
+          <div class="value">Philipp Mayer</div>
+        </div>
+        <div class="field">
+          <div class="label">Flug</div>
+          <div class="value">LH476</div>
+        </div>
+        <div class="field">
+          <div class="label">Abflug</div>
+          <div class="value">22.08.2025 · 16:00</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="details">
+        <div class="field">
+          <div class="label">Von</div>
+          <div class="value">München (MUC)</div>
+        </div>
+        <div class="field">
+          <div class="label">Nach</div>
+          <div class="value">Vancouver (YVR)</div>
+        </div>
+        <div class="field">
+          <div class="label">Gate / Sitz</div>
+          <div class="value">G12 / 12A</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rechte Seite -->
+    <aside class="right">
+      <div class="info">
+        Passagier: <strong>Philipp Mayer</strong><br>
+        Flug: <strong>LH476</strong><br>
+        Abflug: 22.08.2025 · 16:00
+      </div>
+      <div id="qrcode"></div>
+    </aside>
+  </article>
+
+  <!-- QRCode.js Bibliothek -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // Hier kannst du frei wählen, was im QR-Code stehen soll:
+    const qrText = "Secret Silence Flug | LH476 | MUC → YVR | 22.08.2025 16:00 | Passagier: Philipp Mayer";
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: qrText,
+      width: 150,
+      height: 150,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+  </script>
+</body>
+</html>
