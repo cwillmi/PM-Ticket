@@ -1,134 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Secret Silence Flug – Ticket</title>
-  <style>
-    :root{
-      --yellow:#ffcc00;
-      --blue:#0a1d4d;
-      --card:#fff;
-      --text:#111;
-    }
-    body{
-      margin:0; 
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--blue);
-      color: var(--text);
-      display:flex; justify-content:center; align-items:center;
-      min-height:100vh;
-      padding:20px;
-    }
-    .ticket{
-      background:var(--card);
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,.4);
-      max-width:800px;
-      width:100%;
-      overflow:hidden;
-      display:grid;
-      grid-template-columns:2fr 1fr;
-    }
-    .left{ padding:30px; }
-    .right{ 
-      padding:20px; 
-      background:var(--yellow);
-      color:var(--blue);
-      display:flex; flex-direction:column; justify-content:space-between;
-    }
-    header{
-      display:flex; justify-content:space-between; align-items:center;
-      margin-bottom:20px;
-    }
-    .brand{
-      font-weight:900; font-size:22px; letter-spacing:.05em;
-      color:var(--blue);
-    }
-    .route{
-      font-size:48px; font-weight:900; color:var(--blue);
-      display:flex; align-items:center; gap:15px;
-    }
-    .route span{ font-size:28px; color:#444; font-weight:500; }
-    .details{
-      margin-top:20px;
-      display:grid; grid-template-columns: repeat(3,1fr); gap:15px;
-    }
-    .field{ border:1px solid #eee; border-radius:10px; padding:10px; background:#fafafa; }
-    .label{ font-size:11px; color:#666; text-transform:uppercase; letter-spacing:.05em; }
-    .value{ font-size:16px; font-weight:700; margin-top:4px; }
-    .divider{ height:1px; background:repeating-linear-gradient(90deg,#999 0 6px,transparent 6px 12px); margin:25px 0; }
-    .right .info{
-      font-size:14px; line-height:1.4; font-weight:600;
-    }
-    .qr{
-      margin-top:20px; 
-      width:100%; aspect-ratio:1/1;
-      background: repeating-conic-gradient(var(--blue) 0 25%, var(--yellow) 0 50%) 50% / 20px 20px;
-      border-radius:10px;
-    }
-    footer{
-      margin-top:20px; font-size:12px; color:#666; text-align:center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flug nicht gefunden – Lufthansa</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f8;
+    color: #0a1d4d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .container {
+    background: #ffffff;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    padding: 40px 30px;
+  }
+  .header {
+    font-size: 32px;
+    font-weight: bold;
+    color: #0a1d4d;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .accent {
+    width: 60px;
+    height: 5px;
+    background: #ffcc00;
+    margin: 0 auto 30px auto;
+    border-radius: 2px;
+  }
+  .error-code {
+    font-size: 72px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 20px;
+  }
+  .message {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+  .button {
+    display: inline-block;
+    background: #0a1d4d;
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .button:hover {
+    background: #002080;
+  }
+</style>
 </head>
 <body>
-  <article class="ticket">
-    <!-- Linke Seite -->
-    <section class="left">
-      <header>
-        <div class="brand">Secret Silence Flug</div>
-        <div><strong>LH476</strong></div>
-      </header>
-
-      <div class="route">
-        MUC <span>→</span> YVR
-      </div>
-      <div> München → Vancouver</div>
-
-      <div class="details">
-        <div class="field">
-          <div class="label">Passagier</div>
-          <div class="value">Philipp Mayer</div>
-        </div>
-        <div class="field">
-          <div class="label">Flug</div>
-          <div class="value">LH476</div>
-        </div>
-        <div class="field">
-          <div class="label">Abflug</div>
-          <div class="value">22.08.2025 · 16:00</div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="details">
-        <div class="field">
-          <div class="label">Von</div>
-          <div class="value">München (MUC)</div>
-        </div>
-        <div class="field">
-          <div class="label">Nach</div>
-          <div class="value">Vancouver (YVR)</div>
-        </div>
-        <div class="field">
-          <div class="label">Gate / Sitz</div>
-          <div class="value">G12 / 12A</div>
-        </div>
-      </div>
-      <footer>Dies ist eine kreative Demo-Seite, kein echtes Ticket ✈️</footer>
-    </section>
-
-    <!-- Rechte Seite -->
-    <aside class="right">
-      <div class="info">
-        Passagier: <br><strong>Philipp Mayer</strong><br><br>
-        Flug: <strong>LH476</strong><br>
-        Abflug: 22.08.2025 · 16:00
-      </div>
-      <div class="qr"></div>
-    </aside>
-  </article>
+  <div class="container">
+    <div class="header">Lufthansa</div>
+    <div class="accent"></div>
+    <div class="error-code">404</div>
+    <div class="message">
+      Der gewünschte Flug konnte nicht gefunden werden.<br>
+      Bitte überprüfen Sie die Flugnummer oder versuchen Sie es später erneut.
+    </div>
+    <a href="/" class="button">Zur Startseite</a>
+  </div>
 </body>
 </html>
