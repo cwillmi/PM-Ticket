@@ -35,9 +35,24 @@
       padding:20px; 
       background:var(--yellow);
       color:var(--blue);
-      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      display:flex; flex-direction:column; justify-content:space-between; align-items:center;
     }
     header{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
     .brand{ font-weight:900; font-size:22px; letter-spacing:.05em; color:var(--blue); }
     .route{ font-size:48px; font-weight:900; color:var(--blue); display:flex; align-items:center; gap:15px; }
-    .route span{ font-
+    .route span{ font-size:28px; color:#444; font-weight:500; }
+    .details{ margin-top:20px; display:grid; grid-template-columns: repeat(3,1fr); gap:15px; }
+    .field{ border:1px solid #eee; border-radius:10px; padding:10px; background:#fafafa; }
+    .label{ font-size:11px; color:#666; text-transform:uppercase; letter-spacing:.05em; }
+    .value{ font-size:16px; font-weight:700; margin-top:4px; }
+    .divider{ height:1px; background:repeating-linear-gradient(90deg,#999 0 6px,transparent 6px 12px); margin:25px 0; }
+    .right .info{ font-size:14px; line-height:1.4; font-weight:600; margin-bottom:20px; text-align:center; }
+    footer{ margin-top:20px; font-size:12px; color:#666; text-align:center; }
+    .qr-placeholder{ width:150px; height:150px; background:#fff; border-radius:10px; padding:8px; }
+    .qr-placeholder img{ width:100%; height:100%; object-fit:contain; }
+  </style>
+</head>
+<body>
+  <article class="ticket">
+    <!-- Linke Seite -->
+    <section class="left">
